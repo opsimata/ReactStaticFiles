@@ -1,12 +1,12 @@
 import styles from "./Menu.module.scss";
+import { ReactComponent as Logo } from "../../assets/img/logo.svg"
 
 export default function Menu() {
-    return(
-        <main>
-            <nav className={styles.menu}>
-                <img src="../../assets/logo.svg" alt="Aluroni logo" />
-                Aluroni
-            </nav>
-        </main>
-    )
+  return (
+    <main>
+      <nav className={styles.menu}>
+        <Logo />
+      </nav>
+    </main>
+  );
 }
