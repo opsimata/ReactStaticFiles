@@ -2,6 +2,7 @@ import styles from "./Menu.module.scss";
 import { ReactComponent as Logo } from "assets/img/logo.svg";
 import Finder from "./Finder";
 import { useState } from "react";
+import Filters from "./Filters";
 
 export default function Menu() {
   const [find, setFinder] = useState("");
@@ -16,6 +17,9 @@ export default function Menu() {
       <section className={styles.menu}>
         <h3 className={styles.menu__title}>Cardápio</h3>
         <Finder find={find} setFinder={setFinder}/>
+        <div className={styles.menu__filters}>
+          <Filters/>
+        </div>
       </section>
     </main>
   );
