@@ -13,7 +13,7 @@ export default function Finder({ find, setFinder }: Props) {
       <input
         value={find}
         onChange={(event) => setFinder(event.target.value)}
-        type="text"
+        placeholder="Buscar"
       />
       <CgSearch size={20} color="#4C4D5E" />
     </div>

@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from "assets/img/logo.svg";
 import Finder from "./Finder";
 import { useState } from "react";
 import Filters from "./Filters";
+import Sorter from "./Sorter";
 
 export default function Menu() {
   const [find, setFinder] = useState("");
@@ -21,6 +22,7 @@ export default function Menu() {
         <Finder find={find} setFinder={setFinder}/>
         <div className={styles.menu__filters}>
           <Filters filter={filter} setFilter={setFilter}/>
+          <Sorter/>
         </div>
       </section>
     </main>
