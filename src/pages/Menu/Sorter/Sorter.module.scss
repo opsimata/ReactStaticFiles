@@ -14,7 +14,7 @@
   min-width: 240px;
   padding: 0 40px;
   position: relative;
-  &--active {
+  &--ativo {
     background-color: $blue;
     color: white;
   }
@@ -25,7 +25,7 @@
     flex-direction: column;
     top: 100%;
     width: 100%;
-    &--ativo {
+    &--active {
       display: flex;
     }
   }

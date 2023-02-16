@@ -8,6 +8,7 @@ import Sorter from "./Sorter";
 export default function Menu() {
   const [find, setFinder] = useState("");
   const [filter, setFilter] = useState <number | null> (null);
+  const [sorter, setSorter] = useState("");
 
   return (
     <main>
@@ -22,7 +23,7 @@ export default function Menu() {
         <Finder find={find} setFinder={setFinder}/>
         <div className={styles.menu__filters}>
           <Filters filter={filter} setFilter={setFilter}/>
-          <Sorter/>
+          <Sorter sorter={sorter} setSorter={setSorter}/>
         </div>
       </section>
     </main>
