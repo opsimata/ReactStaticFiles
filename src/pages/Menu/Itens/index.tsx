@@ -11,10 +11,10 @@ interface Props {
 
 export default function Itens(props: Props) {
   const [list, setList] = useState(menu);
-  const { find, filter } = props;
+  const { find, filter, sorter } = props;
 
   function testSearch(title: string) {
-    const regex = new RegExp(find, 'i');
+    const regex = new RegExp(find, "i");
     return regex.test(title);
   }
 
@@ -25,18 +25,30 @@ export default function Itens(props: Props) {
     return true;
   }
 
+  function sort(newList: typeof menu) {
+    switch (sorter) {
+      case "porcao":
+        return newList.sort((a, b) => (a.size > b.size ? 1 : -1));
+      case "qtd_pessoas":
+        return newList.sort((a, b) => (a.serving > b.serving ? 1 : -1));
+      case "preco":
+        return newList.sort((a, b) => (a.price > b.price ? 1 : -1));
+      default:
+        return newList;
+    }
+  }
+
   useEffect(() => {
-    const newList = menu.filter(item => testSearch(item.title) && testFilter(item.category.id));
-    setList(newList);
-  }, [find, filter]);
+    const newList = menu.filter(
+      (item) => testSearch(item.title) && testFilter(item.category.id)
+    );
+    setList(sort(newList));
+  }, [find, filter, sorter]);
 
   return (
     <div className={styles.itens}>
       {list.map((item) => (
-        <Item
-          key={item.id}
-          {...item}
-        />
+        <Item key={item.id} {...item} />
       ))}
     </div>
   );
